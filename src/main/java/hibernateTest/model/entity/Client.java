@@ -11,9 +11,9 @@ import javax.persistence.*;
  * Time: 16:14
  */
 @Entity
-@Table(name = "Clients")
+@Table(name = "CLIENTS")
 public class Client {
-    private int clientID;
+    private int id;
     private String phone;
     private String name;
 
@@ -23,13 +23,13 @@ public class Client {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "ClientID")
-    public int getClientID() {
-        return clientID;
+    @Column(name = "id")
+    public int getId() {
+        return id;
     }
 
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPhone() {

@@ -13,9 +13,9 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "Events")
+@Table(name = "EVENTS")
 public class Event {
-    private int eventID;
+    private int id;
     private String eventName;
     private Date eventDate;
 
@@ -23,7 +23,7 @@ public class Event {
 
     }
 
-    @Column(name = "EventDate")
+    @Column(name = "EVENTS")
     public Date getEventDate() {
         return eventDate;
     }
@@ -35,13 +35,13 @@ public class Event {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "EventID")
-    public int getEventID() {
-        return eventID;
+    @Column(name = "id")
+    public int getId() {
+        return id;
     }
 
-    public void setEventID(int eventID) {
-        this.eventID = eventID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Column(name = "EventName")

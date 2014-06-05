@@ -13,14 +13,35 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Zones")
+@Table(name = "ZONES")
 public class Zone {
-    private int zoneID;
+    private int id;
     private String zoneName;
     private int maxRows;
     private int maxSeats;
+    private Event event;
+    private int price;
 
     public Zone() {
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "EVENTS_ID")
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    @Column(name = "Price")
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Column(name = "MaxRows")
@@ -44,13 +65,13 @@ public class Zone {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "zoneID")
-    public int getZoneID() {
-        return zoneID;
+    @Column(name = "id")
+    public int getId() {
+        return id;
     }
 
-    public void setZoneID(int zoneID) {
-        this.zoneID = zoneID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Column(name = "ZoneName")

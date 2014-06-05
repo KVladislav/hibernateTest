@@ -12,9 +12,9 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Tickets")
+@Table(name = "TICKETS")
 public class Ticket {
-    private int ticketID;
+    private int id;
     private Zone zone;
     private int row;
     private int seat;
@@ -23,6 +23,19 @@ public class Ticket {
 
     public Ticket() {
     }
+
+    @ManyToOne
+    @JoinColumn(name = "ZONES_ID")
+    public Zone getZone() {
+        return zone;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "CLIENTS_ID")
+    public Client getClient() {
+        return client;
+    }
+
 
     @Column(name = "Row")
     public int getRow() {
@@ -33,7 +46,7 @@ public class Ticket {
         this.row = row;
     }
 
-    @Column (name = "Seat")
+    @Column(name = "Seat")
     public int getSeat() {
         return seat;
     }
@@ -46,22 +59,13 @@ public class Ticket {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "ticketID")
-    public int getTicketID() {
-        return ticketID;
+    @Column(name = "id")
+    public int getId() {
+        return id;
     }
 
-    public void setTicketID(int ticketID) {
-        this.ticketID = ticketID;
-    }
-
-    @Column(name = "Zone")
-    public Zone getZone() {
-        return zone;
-    }
-
-    public void setZone(Zone zone) {
-        this.zone = zone;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Column(name = "isReserved")
@@ -73,9 +77,8 @@ public class Ticket {
         this.isReserved = isReserved;
     }
 
-    @Column(name = "Client")
-    public Client getClient() {
-        return client;
+    public void setZone(Zone zone) {
+        this.zone = zone;
     }
 
     public void setClient(Client client) {
