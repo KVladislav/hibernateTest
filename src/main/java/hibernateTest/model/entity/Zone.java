@@ -8,14 +8,12 @@ package hibernateTest.model.entity;
  */
 public class Zone {
     private int zoneID;
-    private int ticketAmount;
     private String zoneName;
     private int maxRows;
     private int maxSeats;
 
-    public Zone(int zoneID, int ticketAmount, String zoneName, int maxRows, int maxSeats) {
+    public Zone(int zoneID, String zoneName, int maxRows, int maxSeats) {
         this.zoneID = zoneID;
-        this.ticketAmount = ticketAmount;
         this.zoneName = zoneName;
         this.maxRows = maxRows;
         this.maxSeats = maxSeats;
@@ -46,14 +44,6 @@ public class Zone {
 
     public void setZoneID(int zoneID) {
         this.zoneID = zoneID;
-    }
-
-    public int getTicketAmount() {
-        return ticketAmount;
-    }
-
-    public void setTicketAmount(int ticketAmount) {
-        this.ticketAmount = ticketAmount;
     }
 
     public String getZoneName() {
