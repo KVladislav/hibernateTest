@@ -6,6 +6,8 @@ package hibernateTest.model.entity;
  * Date: 05.06.2014
  * Time: 13:14
  */
+
+
 public class Zone {
     private int zoneID;
     private String zoneName;
