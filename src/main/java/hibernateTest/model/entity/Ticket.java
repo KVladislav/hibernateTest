@@ -12,7 +12,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Ticket")
+@Table(name="Tickets")
 public class Ticket {
     private int ticketID;
     private Zone zone;
@@ -20,15 +20,6 @@ public class Ticket {
     private int seat;
     private boolean isReserved;
     private Client client;
-
-    public Ticket(int ticketID, Zone zone, int row, int seat, boolean isReserved, Client client) {
-        this.ticketID = ticketID;
-        this.zone = zone;
-        this.row = row;
-        this.seat = seat;
-        this.isReserved = isReserved;
-        this.client = client;
-    }
 
     public Ticket() {
     }

@@ -1,24 +1,41 @@
 package hibernateTest.model.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Vladislav Karpenko
  * Date: 05.06.2014
  * Time: 16:09
  */
+
+@Entity
+@Table(name = "Events")
 public class Event {
     private int eventID;
     private String eventName;
-
-    public Event(int eventID, String eventName) {
-        this.eventID = eventID;
-        this.eventName = eventName;
-    }
+    private Date eventDate;
 
     public Event() {
 
     }
 
+    @Column(name = "EventDate")
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "EventID")
     public int getEventID() {
         return eventID;
     }
@@ -27,6 +44,7 @@ public class Event {
         this.eventID = eventID;
     }
 
+    @Column(name = "EventName")
     public String getEventName() {
         return eventName;
     }

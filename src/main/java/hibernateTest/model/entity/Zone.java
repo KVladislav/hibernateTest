@@ -1,5 +1,9 @@
 package hibernateTest.model.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Vladislav Karpenko
@@ -8,22 +12,18 @@ package hibernateTest.model.entity;
  */
 
 
+@Entity
+@Table(name = "Zones")
 public class Zone {
     private int zoneID;
     private String zoneName;
     private int maxRows;
     private int maxSeats;
 
-    public Zone(int zoneID, String zoneName, int maxRows, int maxSeats) {
-        this.zoneID = zoneID;
-        this.zoneName = zoneName;
-        this.maxRows = maxRows;
-        this.maxSeats = maxSeats;
-    }
-
     public Zone() {
     }
 
+    @Column(name = "MaxRows")
     public int getMaxRows() {
         return maxRows;
     }
@@ -32,6 +32,7 @@ public class Zone {
         this.maxRows = maxRows;
     }
 
+    @Column(name = "MaxSeats")
     public int getMaxSeats() {
         return maxSeats;
     }
@@ -40,6 +41,10 @@ public class Zone {
         this.maxSeats = maxSeats;
     }
 
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "zoneID")
     public int getZoneID() {
         return zoneID;
     }
@@ -48,6 +53,7 @@ public class Zone {
         this.zoneID = zoneID;
     }
 
+    @Column(name = "ZoneName")
     public String getZoneName() {
         return zoneName;
     }
