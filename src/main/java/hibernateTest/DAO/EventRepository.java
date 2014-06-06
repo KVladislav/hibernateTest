@@ -14,7 +14,7 @@ import java.util.List;
 public interface EventRepository {
     public void addEvent(Event event) throws SQLException;
     public void updateEvent(Event event) throws SQLException;
-    public void getEventById(int id) throws SQLException;
+    public Event getEventById(int id) throws SQLException;
     public List<Event> getAllEvents() throws SQLException;
     public void deleteEvent(Event event) throws SQLException;
 }
