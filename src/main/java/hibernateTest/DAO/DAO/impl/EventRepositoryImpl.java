@@ -3,11 +3,13 @@ package hibernateTest.DAO.DAO.impl;
 import hibernateTest.DAO.EventRepository;
 import hibernateTest.model.entity.Event;
 import hibernateTest.util.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -95,6 +97,27 @@ public class EventRepositoryImpl implements EventRepository {
         }
         return events;
 
+    }
+
+    @Override
+    public List<Event> getFutureEvents() throws SQLException {
+        Session session = null;
+        List<Event> events = new ArrayList<Event>();
+        Date date = new Date();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from Event where eventDate >=:date");
+            events = query.list();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error I/O", JOptionPane.OK_OPTION);
+        }
+        finally {
+            if (session!=null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return events;
     }
 
     @Override

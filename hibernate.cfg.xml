@@ -19,5 +19,6 @@
         <mapping class="hibernateTest.model.entity.Event" />
         <mapping class="hibernateTest.model.entity.Ticket" />
         <mapping class="hibernateTest.model.entity.Zone" />
+        <mapping class="hibernateTest.model.entity.ZoneDefaults" />
     </session-factory>
 </hibernate-configuration>

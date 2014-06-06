@@ -3,6 +3,7 @@ package hibernateTest.DAO.DAO.impl;
 import hibernateTest.DAO.ClientRepository;
 import hibernateTest.model.entity.Client;
 import hibernateTest.util.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import javax.swing.*;
@@ -65,6 +66,26 @@ public class ClientRepositoryImpl implements ClientRepository {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             client = (Client) session.load(Client.class, id);
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error I/O", JOptionPane.OK_OPTION);
+        }
+        finally {
+            if (session!=null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return client;
+    }
+
+    @Override
+    public Client getClientByPhone(String phone) throws SQLException {
+        Session session = null;
+        Client client = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from Client where phone like '%:phone%'");
+            client = (Client) query.uniqueResult();
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error I/O", JOptionPane.OK_OPTION);
