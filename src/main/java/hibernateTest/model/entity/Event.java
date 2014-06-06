@@ -19,6 +19,7 @@ public class Event {
     private EventType eventType;
     private String eventName;
     private Date eventDate;
+    private Operator operator;
 
     public Event() {
 
