@@ -20,6 +20,7 @@ public class Ticket {
     private int seat;
     private boolean isReserved;
     private Client client;
+    private Operator operator;
 
     public Ticket() {
     }

@@ -16,6 +16,7 @@ import java.util.Date;
 @Table(name = "EVENTS")
 public class Event {
     private int id;
+    private EventType eventType;
     private String eventName;
     private Date eventDate;
 
