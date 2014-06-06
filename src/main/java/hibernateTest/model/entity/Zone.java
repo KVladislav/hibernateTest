@@ -16,9 +16,7 @@ import javax.persistence.*;
 @Table(name = "ZONES")
 public class Zone {
     private int id;
-    private String zoneName;
-    private int maxRows;
-    private int maxSeats;
+    private ZoneSettings zoneSettings;
     private Event event;
     private int price;
 
@@ -35,6 +33,16 @@ public class Zone {
         this.event = event;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "ZONESETTINGS_ID")
+    public ZoneSettings getZoneSettings() {
+        return zoneSettings;
+    }
+
+    public void setZoneSettings(ZoneSettings zoneSettings) {
+        this.zoneSettings = zoneSettings;
+    }
+
     @Column(name = "Price")
     public int getPrice() {
         return price;
@@ -44,23 +52,7 @@ public class Zone {
         this.price = price;
     }
 
-    @Column(name = "MaxRows")
-    public int getMaxRows() {
-        return maxRows;
-    }
 
-    public void setMaxRows(int maxRows) {
-        this.maxRows = maxRows;
-    }
-
-    @Column(name = "MaxSeats")
-    public int getMaxSeats() {
-        return maxSeats;
-    }
-
-    public void setMaxSeats(int maxSeats) {
-        this.maxSeats = maxSeats;
-    }
 
     @Id
     @GeneratedValue(generator = "increment")
@@ -72,14 +64,5 @@ public class Zone {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Column(name = "ZoneName")
-    public String getZoneName() {
-        return zoneName;
-    }
-
-    public void setZoneName(String zoneName) {
-        this.zoneName = zoneName;
     }
 }
