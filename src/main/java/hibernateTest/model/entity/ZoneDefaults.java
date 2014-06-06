@@ -12,14 +12,14 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "ZONESETTINGS")
-public class ZoneSettings {
+@Table(name = "ZONEDEFAULTS")
+public class ZoneDefaults {
     private int id;
     private String zoneName;
     private int maxRows;
     private int maxSeats;
 
-    public ZoneSettings() {
+    public ZoneDefaults() {
     }
 
     @Id
