@@ -18,6 +18,7 @@ public class Event {
     private int id;
     private EventType eventType;
     private String eventName;
+    private String description;
     private Date eventDate;
     private Operator operator;
 
@@ -25,7 +26,34 @@ public class Event {
 
     }
 
-    @Column(name = "EVENTS")
+    @ManyToOne
+    @JoinColumn(name = "EVENTTYPES_ID")
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    @ManyToOne
+    @JoinColumn(name = "OPERATORS_ID")
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
+
+    @Column(name = "DATE")
     public Date getEventDate() {
         return eventDate;
     }

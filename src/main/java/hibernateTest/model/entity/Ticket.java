@@ -26,6 +26,16 @@ public class Ticket {
     }
 
     @ManyToOne
+    @JoinColumn(name = "OPERATORS_ID")
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
+
+    @ManyToOne
     @JoinColumn(name = "ZONES_ID")
     public Zone getZone() {
         return zone;
@@ -38,7 +48,7 @@ public class Ticket {
     }
 
 
-    @Column(name = "Row")
+    @Column(name = "ROW")
     public int getRow() {
         return row;
     }
@@ -47,7 +57,7 @@ public class Ticket {
         this.row = row;
     }
 
-    @Column(name = "Seat")
+    @Column(name = "SEAT")
     public int getSeat() {
         return seat;
     }
@@ -69,7 +79,7 @@ public class Ticket {
         this.id = id;
     }
 
-    @Column(name = "isReserved")
+    @Column(name = "ISRESERVED")
     public boolean isReserved() {
         return isReserved;
     }

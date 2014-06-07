@@ -16,7 +16,6 @@ import javax.persistence.*;
 @Table(name = "ZONES")
 public class Zone {
     private int id;
-    private ZoneDefaults zoneDefaults;
     private Event event;
     private int price;
     private String zoneName;
@@ -36,17 +35,7 @@ public class Zone {
         this.event = event;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "ZONEDEFAULTS_ID")
-    public ZoneDefaults getZoneDefaults() {
-        return zoneDefaults;
-    }
-
-    public void setZoneDefaults(ZoneDefaults zoneDefaults) {
-        this.zoneDefaults = zoneDefaults;
-    }
-
-    @Column(name = "Price")
+   @Column(name = "Price")
     public int getPrice() {
         return price;
     }
