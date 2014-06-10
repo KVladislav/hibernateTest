@@ -8,7 +8,6 @@ import org.hibernate.Session;
 
 import javax.swing.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -101,7 +100,7 @@ public class ClientRepositoryImpl implements ClientRepository {
     @Override
     public List<Client> getAllClients() throws SQLException {
         Session session = null;
-        List<Client> clients = new ArrayList<Client>();
+        List<Client> clients = null;//new ArrayList<Client>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             clients = session.createCriteria(Client.class).list();

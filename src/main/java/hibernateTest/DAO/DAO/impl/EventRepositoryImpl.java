@@ -82,7 +82,7 @@ public class EventRepositoryImpl implements EventRepository {
     @Override
     public List<Event> getAllEvents() throws SQLException {
         Session session = null;
-        List<Event> events = new ArrayList<Event>();
+        List<Event> events = null;//new ArrayList<Event>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             events = session.createCriteria(Event.class).list();

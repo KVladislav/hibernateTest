@@ -12,9 +12,9 @@ import java.util.List;
  * Time: 22:09
  */
 public interface OperatorRepository {
-    public void addOperator (Operator eventType) throws SQLException;
-    public void updateOperator(Operator eventType) throws SQLException;
+    public void addOperator (Operator operator) throws SQLException;
+    public void updateOperator(Operator operator) throws SQLException;
     public Operator getOperatorById(int id) throws SQLException;
     public List<Operator> getAllOperators() throws SQLException;
-    public void deleteOperator(Operator eventType) throws SQLException;
+    public void deleteOperator(Operator operator) throws SQLException;
 }
