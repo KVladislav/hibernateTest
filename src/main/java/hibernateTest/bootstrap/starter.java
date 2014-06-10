@@ -9,6 +9,7 @@ import hibernateTest.DAO.ZoneRepository;
 import hibernateTest.model.entity.Event;
 import hibernateTest.model.entity.Ticket;
 import hibernateTest.model.entity.Zone;
+import hibernateTest.util.HibernateUtil;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -43,6 +44,7 @@ public class Starter {
         eventRepository.addEvent(event);
         zoneRepository.addZone(zone);
         ticketRepository.addTicket(ticket);
+        HibernateUtil.shutdown();
 
     }
 }
