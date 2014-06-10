@@ -62,4 +62,13 @@ public class ZoneDefaults {
         this.zoneName = zoneName;
     }
 
+    @Override
+    public String toString() {
+        return "ZoneDefaults{" +
+                "id=" + id +
+                ", zoneName='" + zoneName + '\'' +
+                ", maxRows=" + maxRows +
+                ", maxSeats=" + maxSeats +
+                '}';
+    }
 }

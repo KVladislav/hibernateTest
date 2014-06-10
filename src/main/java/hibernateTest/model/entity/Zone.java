@@ -84,4 +84,16 @@ public class Zone {
     public void setZoneName(String zoneName) {
         this.zoneName = zoneName;
     }
+
+    @Override
+    public String toString() {
+        return "Zone{" +
+                "id=" + id +
+                ", event=" + event +
+                ", price=" + price +
+                ", zoneName='" + zoneName + '\'' +
+                ", maxRows=" + maxRows +
+                ", maxSeats=" + maxSeats +
+                '}';
+    }
 }
